@@ -2,10 +2,15 @@ from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 import openai
 from settings import DEFAULT_OPENAPI_REPLY
+import os
+from dotenv import load_dotenv
 
 app = Flask(__name__)
-openai.api_key = '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'
+openai.api_key = os.getenv('openai.api_key')
 # conig()
+
+def configure():
+    load_dotenv
 
 
 def get_answer(question):
@@ -19,7 +24,7 @@ def get_answer(question):
             n = 1,                        #how many completion generate from each prompt
             stop = None,                  #where the api stop generating further token
         )
-    except openai.error.RateLimit:
+    except:
         return DEFAULT_OPENAPI_REPLY
 
     #fetch and return the text
