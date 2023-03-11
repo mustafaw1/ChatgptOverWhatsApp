@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 twilio = "*"
 openai = "*"
+python-decouple = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
