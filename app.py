@@ -1,16 +1,20 @@
-from flask import Flask, request
+from flask import Flask
 from twilio.twiml.messaging_response import MessagingResponse
 import openai
 from settings import DEFAULT_OPENAPI_REPLY
 import os
 from dotenv import load_dotenv
-
-app = Flask(__name__)
-openai.api_key = os.getenv('openai.api_key')
-# conig()
+from payments import payment
 
 def configure():
     load_dotenv
+
+app = Flask(__name__)
+
+DB = {}
+
+openai.api_key = os.getenv('api_key')
+
 
 
 def get_answer(question):
@@ -34,8 +38,16 @@ def get_answer(question):
 @app.route("/whatsapp", methods=['POST'])
 def whatsapp_reply():
     question = request.form.get('Body')
+
     print('User query: ', question)
+
     twilio_response = MessagingResponse()
+
+    DB[twilio_response] += 1
+    #if user messages exceed more than 10 redirect it to the stripe method payement link
+    if DB[twilio_response] > 10:
+        return "sorry your quota for this service has been completed. You have pay for the service using this link. " + payment() 
+
     reply = twilio_response.message()
 
     #generate response using chatgpt

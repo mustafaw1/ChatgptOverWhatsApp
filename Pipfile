@@ -8,6 +8,7 @@ twilio = "*"
 openai = "*"
 python-decouple = "*"
 python-dotenv = "*"
+stripe = "*"
 
 [dev-packages]
 
