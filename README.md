@@ -9,8 +9,13 @@ text messgaes
 There are couple of things that you need before you get started following this repository.
 
 OpenAI API key, since it is open to all, you can create an account here and access the key.
-You need a Twilio project, you can get Account SID and Auth Token for that project, we will need this to make requests. You can get it from here. 
-https://www.twilio.com/login?g=%2Fconsole-zen%2F&t=8106af639d51e0afc1a4286c23ba4b086f23c378c83bb122b84e6243152b669c
+You need a Twilio project, you can get Account SID and Auth Token for that project, we will need this to make requests. You can get it from here.
+```
+{
+    https://www.twilio.com/login?g=%2Fconsole-zen%2F&t=8106af639d51e0afc1a4286c23ba4b086f23c378c83bb122b84e6243152b669c
+}
+``` 
+
 
 API requesting application like Postman, Insomnia, etc.
 NGROK for local testing.
