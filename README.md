@@ -23,9 +23,10 @@ FROM=whatsapp:+14155238886
 
 ```
 
-```
+
 create a virtual environment and activate it before installing the packages
 install all the required dependencies from the requirements.txt file
+```
 pip install -r requirements.txt
 run the server with either of the following commands
 python run.py
